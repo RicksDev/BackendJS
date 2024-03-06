@@ -3,7 +3,8 @@ const express = require('express');
 //Define o processo de rota no Framework
 const router = express.Router();
 
-const indexView = require("../view/indexView");
+//ta retornoTela12 só pra testar, de onde que puxa.
+const retornoTela12 = require('../view/indexView');
 
 router.get("/listarAlunos", (req,res) => {
    
@@ -18,7 +19,8 @@ router.get("/listarAlunos", (req,res) => {
 });
 
 router.get("/indexView", (req,res) => {
-    res.send(indexView());
+    //puxando a função que criei no IndexView com a página HTML;
+    res.send(retornoTela12());
     
 })
 

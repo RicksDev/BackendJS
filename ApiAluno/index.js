@@ -2,9 +2,12 @@ const express = require('express');
 const porta = 3000;
 const app = express();
 
+//Quando ser acionado o "/", sera acionado o routes.
+//ou seja, toda vez q tiver barra, o programa vai entender que vai entrar na pasta routes e procurar a rota desejada.
 const routes = require('./Src/routes/routes');
 
 app.use('/', routes);
+ 
 
 app.use(express.static("public"));
 

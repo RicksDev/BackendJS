@@ -1,5 +1,12 @@
-module.exports = () => {
-    return ` 
+//Outra forma de fazer, sem ser por:
+//module.exports = () => {
+    // return `
+  //  `
+//}
+
+
+const retornoTela = () => {
+    const tela = (` 
     <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -111,5 +118,7 @@ module.exports = () => {
 
 
     
-    `
+    `);
+    return tela;
 }
+module.exports = retornoTela;
