@@ -119,6 +119,7 @@ const retornoTela = () => {
 
     
     `);
+    //A função tem q retornar algo pra ser executada
     return tela;
-}
+};
 module.exports = retornoTela;
