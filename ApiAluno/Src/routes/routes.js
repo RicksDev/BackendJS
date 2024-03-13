@@ -3,6 +3,8 @@ const express = require('express');
 //Define o processo de rota no Framework
 const router = express.Router();
 
+const fs = require('fs');
+
 //ta retornoTela12 só pra testar, de onde que puxa.
 const retornoTela12 = require('../view/indexView');
 const retornoTela = require('../view/indexView');
@@ -10,7 +12,11 @@ const retornoTela = require('../view/indexView');
 //array com apontamento de campos (Array dicionário)
 var arrAluno = [{ name: 'Ana' }, { name: 'Carlos' }, { name: 'Renato' }];
 
-
+let texto = '<h1>Opções disponíveis: /listarAlunos, /AlunoId/name, novoAluno/name, excluirAluno/name</h1> '
+router.get('/', (req, res) => {
+    res.writeHead(200, { 'Content-Type': 'text/html; charset=utf=8' });
+    res.end(texto);
+});
 
 
 //na ação get do navegador ou seja, no "/" do navegador.
@@ -66,8 +72,6 @@ router.get('/novoAluno/:name', (req, res) => {
     if (index === -1) {
         let novoNome = { name: name };
         arrAluno.push(novoNome);
-        res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
-        res.end("<h2>Aluno cadastrado</h2>");
         res.send(arrAluno);
     } else {
         res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
@@ -76,6 +80,37 @@ router.get('/novoAluno/:name', (req, res) => {
     //Criar uma rotina que atualiza um aluno
 
 });
+
+router.get('/excluirAluno/:name', (req, res) => {
+    const { name } = req.params;
+    const index = arrAluno.map(aluno => aluno.name).indexOf(name);
+    if (index > -1) {
+        arrAluno.splice(index, 1);
+        res.send(arrAluno);
+    } else {
+        res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+        res.end("<h1>Usuário não existe para ser deletado</h1>");
+    }
+});
+
+//método Post ==  existe no formulário, no "enviar", posso definir se o envio é via Get ou Post
+//O post vai pegar todos os campos do form e vai enviar para o local sem informar no endereçamento (url)
+
+router.post('/addAluno', (req, resp) => {
+    let dado = req.body;
+    resp.send(JSON.stringify(dado));
+    criarArquivo(JSON.stringify(dado));
+
+});
+ 
+function criarArquivo(dado) {
+    fs.writeFile("./src/database/dbAluno.json", dado, (err) => {
+        if (err) {
+            console.log("erro ao criar arquivo");
+        }
+        console.log(dado);
+    });
+}
 
 
 
