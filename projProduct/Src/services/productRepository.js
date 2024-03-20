@@ -1,10 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 const fileName = 'products.json';
-filePath = path.json(__dirname, "..","database",fileName);
+filePath = path.join(__dirname, "..","database",fileName);
 
-class ProductsRepository {
-    static async getProdutos() {
+class productsRepository {
+    static async getProducts() {
         return new Promise((resolve,reject) => {
             fs.readFile(filePath, 'utf-8', (err,data) => {
                 if(err) {
@@ -74,4 +74,4 @@ static async writeProductsToFile(products) {
     };
 };
 
-module.exports = ProductsRepository;
+module.exports = productsRepository;

@@ -1,4 +1,4 @@
-const productRepository = require('../database/productRepository');
+const productRepository = require('../services/productRepository');
 
 // O async => que ele vai executar o processo até o final independente do que acontecer.
 exports.getAllProducts = async (req,res) => {
@@ -52,7 +52,7 @@ exports.deleteProduct = async (req, res) => {
         if(!product) {
             res.status(404).json({error: 'Produto não encontrado'});
         } else {
-            res.status(200).json({msg : 'Produto deletado com sucesso'})
+            res.status(200).json({msg : 'Produto deletado com sucesso'});
         }
     } catch(err) {
         res.status(500).json({json:err.toString()});
