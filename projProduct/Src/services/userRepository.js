@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const fileName = 'users.json';
-filePath = path.join(__dirname, "..","database",fileName);
+const filePath = path.join(__dirname, "..","database",fileName);
 
 class UsersController {
     static async getUsers() {
