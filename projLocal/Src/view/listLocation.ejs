@@ -1,0 +1,19 @@
+<%- include('partials/header') %>
+<main class="o-main">
+    <%
+        location.forEach((loc) => {
+            %>
+            <li>
+                <h3>
+                    <%= loc.nome %> / <%= loc.sigla %>
+                </h3>
+                <p>
+                    <%= loc.bairro %>
+                </p>
+            </li>
+            <hr/>
+            <%
+        });
+    %>
+</main>
+<%- include('partials/footer') %>

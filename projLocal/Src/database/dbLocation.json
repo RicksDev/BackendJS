@@ -1,0 +1,17 @@
+[
+    {
+        "nome": "São Paulo",
+        "sigla": "SP",
+        "bairro": "Jardins"
+    },
+    {
+        "nome": "Rio de Janeiro",
+        "sigla": "RJ",
+        "bairro": "Ipanema"
+    },
+    {
+        "nome": "Minas Gerais",
+        "sigla": "MG",
+        "bairro": "tubalina"
+    }
+]

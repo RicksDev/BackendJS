@@ -1,5 +1,16 @@
-<h1>
-  Olá, estamos em <br />
-  <%= estado.nome %> <br />
-  <%= estado.sigla %>
-</h1>
+<%- include('partials/header') %>
+<main class="o-main">
+  <figure>
+    <a target="_blank" href="img/logo.png">
+      <img
+        src="img/logo.png"
+        alt="logo"
+        width="600px"
+        height="300px"
+        class="imagem"
+      />
+    </a>
+    <figcaption>Logo da empresa</figcaption>
+  </figure>
+</main>
+<%- include('partials/footer') %>
