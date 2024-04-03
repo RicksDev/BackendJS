@@ -7,5 +7,6 @@ router.get('/', locationController.getHome);
 router.get('/contato', locationController.getContact);
 router.get('/home', locationController.getHome);
 router.get('/location',locationController.getAllLocation);
+router.get('/newLocation',locationController.n)
 
 module.exports = router;
