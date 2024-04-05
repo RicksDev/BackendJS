@@ -1,0 +1,10 @@
+1,batata,joajsnbda,6518,84.0,03/05/2024
+Seu código é: 2.
+O Nomo do produto é: asodna
+A descrição do produto é: asdasd
+A quantidade do Produto é: 6515
+O preço do produto é: 165.0Seu código é: 3481.
+O Nomo do produto é: odand
+A descrição do produto é: iansd
+A quantidade do Produto é: 193
+O preço do produto é: 1.2938123E7
