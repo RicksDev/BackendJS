@@ -23,4 +23,18 @@ exports.getHome = async (req, res) => {
     } catch(err) {
         res.status(500).json ({ error: err.toString()});
     }
-}
+};
+
+exports.getNewLocation = async (req, res) => {
+    try{
+        const location = await locationModel.getAllLocation();
+        res.render("newLocation", { location: location});
+    } catch (err) {
+        res.status(500).json({error : err.toString()});
+    }
+    // try {
+    //     res.render("newLocation");
+    // } catch(err) {
+    //     res.status(500).json ({ error: err.toString()});
+    // }
+};

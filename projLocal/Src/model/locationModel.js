@@ -33,6 +33,7 @@ class locationModel {
 
     static async getAllLocation() {
         const locations = await this.getLocation();
+        console.log(locations);
         return locations;
     }
 

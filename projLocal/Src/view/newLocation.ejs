@@ -11,19 +11,18 @@
         placeholder="Digite seu nome.."
       />
 
-      <label for="email">E-mail</label>
-      <input
-        type="text"
-        id="txtEmail"
-        name="email"
-        placeholder="Digite seu E-mail.."
-      />
+      <label for="email">Sigla</label>
+      <select id="txtCidade" name="cidade">
+        <option value="são_paulo">SP</option>
+        <option value="minas">MG</option>
+        <option value="rio">RJ</option>
+      </select>
 
       <label for="cidade">Cidade</label>
       <select id="txtCidade" name="cidade">
-        <option value="são_paulo">São Paulo</option>
         <option value="cotia">Cotia</option>
-        <option value="vargem_grande">Vargem Grande</option>
+        <option value="uberlândia">Uberlândia</option>
+        <option value="Ipanema">Ipanema</option>
       </select>
       <input type="submit" value="Enviar" />
     </form>
