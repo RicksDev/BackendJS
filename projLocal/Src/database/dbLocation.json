@@ -1,17 +1,1 @@
-[
-    {
-        "nome": "São Paulo",
-        "sigla": "SP",
-        "bairro": "Jardins"
-    },
-    {
-        "nome": "Rio de Janeiro",
-        "sigla": "RJ",
-        "bairro": "Ipanema"
-    },
-    {
-        "nome": "Minas Gerais",
-        "sigla": "MG",
-        "bairro": "tubalina"
-    }
-]
+[{"cidade":"São Paulo","sigla":"SP","bairro":"Cotia"},{"cidade":"Rio de Janeiro","sigla":"RJ","bairro":"Ipanema"},{"cidade":"Minas Gerais","sigla":"MG","bairro":"uberlândia"},{"cidade":["cotia","são_paulo"],"bairro":"parque são george"},{"cidade":"uberlândia","sigla":"Minas Gerais","bairro":"planalto"},{"cidade":"Cotia","sigla":"São Paulo","bairro":"Parque são george"},{"cidade":"Ipanema","sigla":"Rio de Janeiro","bairro":"Cocais"}]

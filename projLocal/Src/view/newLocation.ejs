@@ -2,29 +2,34 @@
 <main class="o-main">
   <fieldset class="estilo_form">
     <legend id="estilo_legenda">Cadastro do novo local:</legend>
-    <form method="post">
-      <label for="nome">Nome Completo</label>
-      <input
-        type="text"
-        id="txtNome"
-        name="nome"
-        placeholder="Digite seu nome.."
-      />
-
-      <label for="email">Sigla</label>
-      <select id="txtCidade" name="cidade">
-        <option value="são_paulo">SP</option>
-        <option value="minas">MG</option>
-        <option value="rio">RJ</option>
-      </select>
-
+    <form method="post" action="/newLocation">
       <label for="cidade">Cidade</label>
-      <select id="txtCidade" name="cidade">
-        <option value="cotia">Cotia</option>
-        <option value="uberlândia">Uberlândia</option>
+      <select id="txtCidade" name="cidade" required>
+        <option value="vazio"></option>
+        <option value="Cotia">Cotia</option>
+        <option value="Uberlândia">Uberlândia</option>
         <option value="Ipanema">Ipanema</option>
       </select>
-      <input type="submit" value="Enviar" />
+
+      <label for="sigla">Sigla</label>
+      <select id="txtCidade" name="sigla" required>
+        <option value="vazio"></option>
+        <option value="São Paulo">SP</option>
+        <option value="Minas Gerais">MG</option>
+        <option value="Rio de Janeiro">RJ</option>
+      </select>
+
+      <label for="bairro">Bairro</label>
+      <select id="txtCidade" name="bairro" required>
+        <option value="vazio"></option>
+        <option value="Parque são george">Parque São George</option>
+        <option value="Planalto">Planalto</option>
+        <option value="Cocais">Cocais</option>
+      </select>
+
+      <a href="home.ejs">
+      <input type="submit" value="Enviar"/>
+    </a>
     </form>
   </fieldset>
 </main>

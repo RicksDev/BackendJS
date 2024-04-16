@@ -8,6 +8,6 @@ router.get('/contato', locationController.getContact);
 router.get('/home', locationController.getHome);
 router.get('/location', locationController.getAllLocation);
 router.get('/newLocation', locationController.getNewLocation);
-router.post('/newLocation',locationController.getHome)
+router.post('/newLocation',locationController.postForm);
 
 module.exports = router;
