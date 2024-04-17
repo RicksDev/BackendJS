@@ -1,0 +1,25 @@
+const divFunc = require("./Src/old/div");
+const multFunc = require("./Src/old/mult");
+const somaFunc = require("./Src/old/soma");
+const subFunc = require("./Src/old/sub");
+
+console.log("Hello World");
+
+var nome = "Ricardo";
+var sobrenome = "Filho";
+
+console.log(nome + " " + sobrenome); 
+
+// var num = 10;
+// var num2 = 20;
+
+//Posso criar uma função "global", sem os valores específicos. E quando eu for utilizar, eu passo esses valores na chamada da função;
+
+//Chamo aqui lá do module.exports
+console.log(somaFunc(10,10));
+
+console.log(subFunc(10,10));
+
+console.log(multFunc(10,10));
+
+console.log(divFunc(10,10));
