@@ -33,11 +33,6 @@ exports.getNewLocation = async (req, res) => {
     } catch (err) {
         res.status(500).json({error : err.toString()});
     }
-//     // try {
-//     //     res.render("newLocation");
-//     // } catch(err) {
-//     //     res.status(500).json ({ error: err.toString()});
-//     // }
 };
 
 
