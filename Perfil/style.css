@@ -1,0 +1,67 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+.esquerda {
+  width: 450px;
+  background-color: red;
+  height: 970px;
+}
+.logo {
+  width: 220px;
+  margin: auto;
+  display: block;
+  transform: translate(-15%, 85%);
+}
+.logoHome {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
+.logoUser {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
+ul {
+    width: 50%;
+  margin: auto;
+  margin-top: 60px;
+}
+
+li {
+list-style-type: none;
+}
+
+.flex-item {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+h1 {
+  font-family: "Reddit Mono", monospace;
+  font-optical-sizing: auto;
+}
+
+.meio {
+  background-color: rgb(255, 251, 0);
+  height: 1000px;
+}
+
+.banner {
+  background-color: black;
+  height: 200px;
+  width: 500px;
+}
+
+.direita {
+  background-color: rgb(157, 255, 0);
+  height: 1000px;
+}
