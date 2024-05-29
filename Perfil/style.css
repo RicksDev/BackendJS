@@ -3,21 +3,37 @@
   margin: 0;
   box-sizing: border-box;
 }
+body{
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+@font-face {
+  font-family: "Bogart Regular";
+  src: url("fonts/bogart/Bogart-Regular-trial.ttf") format("truetype"),
+    url("fonts/bogart/Bogart-Semibold-Italic-trial.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
 
 .container {
   display: flex;
   justify-content: space-between;
 }
+
+/* DIV DA ESQUERDA */
+
 .esquerda {
-  width: 450px;
-  background-color: red;
-  height: 970px;
+  width: 25%;
+  background-color: rgb(255, 255, 255);
+  height: 920px;
+  position: relative;
 }
 .logo {
   width: 220px;
   margin: auto;
   display: block;
-  transform: translate(-15%, 85%);
+  transform: translate(-5%, 85%);
+
 }
 .logoHome {
   width: 25px;
@@ -30,9 +46,10 @@
   margin-right: 10px;
 }
 ul {
-    width: 50%;
+  width: 50%;
   margin: auto;
-  margin-top: 60px;
+  padding-top: 30%;
+  padding-left: 6%;
 }
 
 li {
@@ -46,22 +63,177 @@ list-style-type: none;
 }
 
 h1 {
-  font-family: "Reddit Mono", monospace;
-  font-optical-sizing: auto;
+  font-family: "Bogart Regular", sans-serif;
 }
 
+/* DIV DO MEIO */
+
 .meio {
-  background-color: rgb(255, 251, 0);
-  height: 1000px;
+  background-color: rgb(255, 255, 255);
+  height: 944px;
+  width: 50%;
+  z-index: 55;
+  border: 1px solid black;
 }
 
 .banner {
   background-color: black;
-  height: 200px;
-  width: 500px;
+  height: 22%;
+  width: 100%;
+}
+.botaoPost {
+  position: absolute;
+  bottom: 150px;
+  left: 50%;
+  transform: translateX(-70%);
+  height: 39px;
+  width: 150px;
+  border-radius: 25px;
+  border: none;
+  color: rgb(255, 255, 255);
+  background-color:red;
+  box-shadow: rgba(0, 0, 0, 0.506) 0px 5px 15px;
+  font-family: "Bogart Regular", sans-serif;
+  cursor: pointer;
 }
 
+
+.botaoPost:hover{
+  margin-left: 0.95%;
+  margin-bottom: 0.95%;
+  transition: all ease 0.5s;
+}
+
+.icon {
+justify-content: center;
+padding-top: 59px;
+cursor: pointer;
+}
+
+.custum-file-upload .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custum-file-upload .icon svg {
+  height: 50px;
+  fill: rgb(255, 255, 255);
+
+}
+
+.custum-file-upload .text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custum-file-upload .text span {
+  font-weight: 400;
+  color: rgb(255, 255, 255);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.custum-file-upload input {
+  display: none;
+}
+
+.foto_perfil {
+width: 20%;
+margin-left: 5%;
+display: block;
+}
+
+.usuario_bio {
+  margin-top: -10%;
+}
+
+.sobre_usuario {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 5%;
+  margin-right: 10%;
+  padding-top: 1%;
+}
+
+.nome_usuario {
+  font-size: 25px;
+  font-family: "Bogart Regular", sans-serif;
+  font-weight: bold;
+}
+
+.botao_editar {
+  position: absolute;
+  margin-top: -1%;
+  left: 70%;
+  transform: translateX(-70%);
+    height: 39px;
+    width: 150px;
+    border-radius: 25px;
+    border: none;
+  color: rgb(255, 255, 255);
+  background-color:red;
+  box-shadow: rgba(0, 0, 0, 0.506) 0px 5px 15px;
+  font-family: "Bogart Regular", sans-serif;
+  cursor: pointer;
+}
+
+.bio_usuario{ 
+display: block;
+width: 60%;
+padding-top: 3%;
+padding-left: 5%;
+font-size: 20px;
+}
+
+#date {
+  padding-top: 5%;
+  display: flex;
+  text-align: center;
+}
+.linha {
+  background-color:red;
+  box-shadow: rgba(0, 0, 0, 0.506) 0px 5px 15px;
+  cursor: pointer;
+  height: 5px;
+  width: 80px;
+  border-radius: 25px;
+  border: none;
+}
+
+.usuario_feed {
+  display: flex;
+  align-items: center;
+  margin-top: 3%;
+  border: 2px solid red;
+}
+
+.nome_usuario_feed {
+  font-size: 28px;
+font-weight: bold;
+}
+
+.foto_usuario_feed {
+  width: 15%;
+  margin-left: 5%;
+}
+
+/* DIV DA DIREITA */
 .direita {
-  background-color: rgb(157, 255, 0);
-  height: 1000px;
+  width: 25%;
+  background-color: rgb(255, 255, 255);
+  height: 920px;
+  z-index: -99;
+}
+.imgMao {
+ width: 120%;
+ margin-left: -10%;
+  margin-top: 20px;
+}
+.imgBoneco {
+  margin-top: 9%;
+  height: 500px;
+  margin-left: -5% ;
+
 }
