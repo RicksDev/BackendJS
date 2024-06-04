@@ -1,0 +1,405 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  :root{
+    --bgbranco:#f0f0f2;
+    --Bgbranco-secundario:#edecf3;
+    --vermelho:#f20530;
+    --vermelhoSeguncario:#d90b42;
+    --vermelhoEscuro:#a60321;
+    --cinzaEscuro:#666373;
+    --AzulEscuro:#083359;
+  }
+
+  body{
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+  @font-face {
+    font-family: "Bogart Regular";
+    src: url("fonts/bogart/Bogart-Regular-trial.ttf") format("truetype"),
+      url("fonts/bogart/Bogart-Semibold-Italic-trial.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+  }
+  
+
+header{
+  background-color: var(--Bgbranco-secundario);
+  height: 98px;
+}
+
+#home-hover{
+  background-color: var(--Bgbranco-secundario);
+  border-radius: 10px;
+  padding:  0 50px 0 10px;
+}
+
+
+
+
+
+
+/* POST  */
+
+.feed{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.post{
+  /*border: #EFF3F4 1px solid;*/
+  border: var(--Bgbranco-secundario) 3px solid;
+  width:600px ;
+  border-radius: 30px;
+  padding: 20px 50px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, #EFF3F4 0px 0px 0px 1px;
+}
+
+/* HEADER POST  */
+
+.header-post{
+  padding: 12px 0;
+}
+
+.header-post ul{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+}
+
+#text-content {
+  font-size: 18px;
+  font-weight:500;
+}
+
+#name{
+  font-size: 26px;
+}
+
+.img-content{
+  width: 498px;
+  height: 434px;
+  background-color: gray;
+  border-radius: 30px;
+}
+
+#avatar-align{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+#avatar {
+  height: 60px;
+  width: 60px;
+}
+
+#tres-pontos{
+  height: 32px;
+  width: 32px;
+  margin-right: 10px;
+}
+
+/*  FIM DO POST  */
+
+
+
+
+
+
+
+
+
+
+
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* DIV DA ESQUERDA */
+  
+  .esquerda {
+    width: 25%;
+    background-color: rgb(255, 255, 255);
+    height: 920px;
+    position: relative;
+  }
+  .logo {
+    width: 220px;
+    margin: auto;
+    display: block;
+    transform: translate(-5%, 85%);
+  
+  }
+  .logoHome {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+  }
+  .logoUser {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+  }
+  
+  .esquerda ul {
+    width: 50%;
+    margin: auto;
+    padding-top: 30%;
+    padding-left: 6%;
+}
+  
+  li {
+  list-style-type: none;
+  }
+  
+  .flex-item {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+  }
+  
+  h1 {
+    font-family: "Bogart Regular", sans-serif;
+  }
+  
+  /* DIV DO MEIO */
+  
+  .meio {
+    background-color: rgb(255, 255, 255);
+    height: 944px;
+    width: 50%;
+    z-index: 55;
+    border: 3px solid var(--Bgbranco-secundario);
+    border-top: none;
+  }
+  
+  .banner {
+    background-color: black;
+    height: 22%;
+    width: 100%;
+  }
+  .botaoPost {
+    margin-top: 40px;
+    border-radius: 25px;
+    padding: 10px 48px;
+    color: rgb(255, 255, 255);
+    background-color:var(--vermelho);
+    font-family: "Bogart Regular", sans-serif;
+    cursor: pointer;
+    font-size: 20px;
+  }
+
+  
+  .icon {
+  justify-content: center;
+  padding-top: 59px;
+  cursor: pointer;
+  }
+  
+  .custum-file-upload .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .custum-file-upload .icon svg {
+    height: 50px;
+    fill: rgb(255, 255, 255);
+  
+  }
+  
+  .custum-file-upload .text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .custum-file-upload .text span {
+    font-weight: 400;
+    color: rgb(255, 255, 255);
+    font-size: 13px;
+    cursor: pointer;
+  }
+  
+  .custum-file-upload input {
+    display: none;
+  }
+  
+  .foto_perfil {
+  width: 17%;
+  margin-left: 5%;
+  display: block;
+  }
+  
+  .usuario_bio {
+    margin-top: -10%;
+  }
+  
+  .sobre_usuario {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 5%;
+    margin-right: 10%;
+    padding-top: 1%;
+  }
+  
+  .nome_usuario {
+    font-size: 25px;
+    font-family: "Bogart Regular", sans-serif;
+    font-weight: bold;
+  }
+  
+  .botao_editar {
+    position: absolute;
+    margin-top: -1%;
+    left: 70%;
+    transform: translateX(-70%);
+      height: 39px;
+      width: 150px;
+      border-radius: 25px;
+      border: none;
+    color: rgb(255, 255, 255);
+    background-color:red;
+    box-shadow: rgba(0, 0, 0, 0.506) 0px 5px 15px;
+    font-family: "Bogart Regular", sans-serif;
+    cursor: pointer;
+  }
+  
+  .bio_usuario{ 
+  display: block;
+  width: 60%;
+  padding-top: 3%;
+  padding-left: 5%;
+  font-size: 20px;
+  }
+  
+  #date {
+    padding-top: 5%;
+    display: flex;
+    text-align: center;
+  }
+  .linha {
+    background-color:red;
+    box-shadow: rgba(0, 0, 0, 0.506) 0px 5px 15px;
+    cursor: pointer;
+    height: 5px;
+    width: 80px;
+    border-radius: 25px;
+    border: none;
+  }
+  
+  .usuario_feed {
+    display: flex;
+    align-items: center;
+    margin-top: 3%;
+    border: 2px solid rgba(145, 141, 141, 0.459);
+  }
+  
+  .nome_usuario_feed {
+    font-size: 28px;
+  font-weight: bold;
+  }
+  
+  .foto_usuario_feed {
+    width: 12%;
+    margin-left: 7%;
+  }
+  
+  /* DIV DA DIREITA */
+  .direita {
+    width: 25%;
+    background-color: rgb(255, 255, 255);
+    height: 920px;
+    z-index: -99;
+  }
+  .imgMao {
+   width: 120%;
+   margin-left: -10%;
+    margin-top: 20px;
+  }
+  .imgBoneco {
+    margin-top: 9%;
+    height: 500px;
+    margin-left: -5% ;
+  
+  }
+  
+  /* <reset-style> ============================ */
+  body, button {
+    margin: 0;
+    padding: 0;
+    font-family: inherit;
+    font-size: 16px;
+  }
+  
+  button {
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  
+  /* <main-style> ============================ */
+  .options__icon {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: .25rem;
+    background-color: rgba(29, 29, 31, .7);
+    backdrop-filter: saturate(180%) blur(20px);
+    border: solid 1px rgba(66,66,69,0.7);
+    position: relative;
+  }
+  
+  .options__icon span {
+    width: 1rem;
+    height: 0.125rem;
+    background-color: rgb(245, 245, 247);
+    border-radius: 2px;
+  }
+  
+  .options__menu {
+    display: none;
+    position: absolute;
+    top: 2.5rem;
+    left: 0;
+    background-color: rgba(29, 29, 31, .9);
+    border: solid 1px rgba(66,66,69,0.7);
+    backdrop-filter: saturate(180%) blur(20px);
+    border-radius: 4px;
+    overflow: hidden;
+    z-index: 1000;
+  }
+  
+  .options__menu .option {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    background: none;
+    text-align: left;
+    color: rgb(245, 245, 247);
+  }
+  
+  .options__menu .option:hover {
+    background-color: rgba(66, 66, 69, 0.7);
+  }

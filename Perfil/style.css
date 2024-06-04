@@ -140,7 +140,7 @@ cursor: pointer;
 }
 
 .foto_perfil {
-width: 20%;
+width: 17%;
 margin-left: 5%;
 display: block;
 }
@@ -206,7 +206,8 @@ font-size: 20px;
   display: flex;
   align-items: center;
   margin-top: 3%;
-  border: 2px solid red;
+  border: 4px solid rgba(0, 0, 0, 0.062);
+  border-radius: 15px;
 }
 
 .nome_usuario_feed {
@@ -215,8 +216,8 @@ font-weight: bold;
 }
 
 .foto_usuario_feed {
-  width: 15%;
-  margin-left: 5%;
+  width: 12%;
+  margin-left: 7%;
 }
 
 /* DIV DA DIREITA */
@@ -236,4 +237,76 @@ font-weight: bold;
   height: 500px;
   margin-left: -5% ;
 
+}
+
+/* <reset-style> ============================ */
+body, button {
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  font-size: 16px;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* <main-style> ============================ */
+.options__icon {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  backdrop-filter: saturate(180%) blur(20px);
+  border: solid 1px rgb(255, 255, 255);
+  transform: translate(580px, 0) rotate(90deg);
+}
+
+@media (max-width: 768px) {
+  .options__icon {
+    transform: translate(0, 0) rotate(0);
+  }
+}
+
+.options__icon span {
+  width: 5px;
+  height: 5px;
+  background-color: rgb(75, 75, 75);
+  border-radius: 2px;
+}
+
+.options__menu {
+  display: none;
+  position: absolute;
+  top: 79%;
+  left: 69.5%;
+  background-color: rgb(53, 47, 68);
+  border: solid 1px rgb(0, 0, 0);
+  backdrop-filter: saturate(180%) blur(20px);
+  border-radius: 4px;
+  overflow: hidden;
+  z-index: 1000;
+
+}
+
+.options__menu .option {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background: none;
+  text-align: left;
+  color: rgb(245, 245, 247);
+  font-size: 22px;
+}
+
+.options__menu .option:hover {
+  background-color: rgba(66, 66, 69, 0.7);
+}
+.show {
+  display: block;
 }
