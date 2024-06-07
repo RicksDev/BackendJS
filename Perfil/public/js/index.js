@@ -1,5 +1,5 @@
 const container = document.getElementById("container-card");
-const dataBase = `dataBase.json`;
+const dataBase = `dataBaseTeste.json`;
 const initialImage = "public/image/curtida-vazia.png";
 const alternateImage = "public/image/curtida-vermelha.png";
 

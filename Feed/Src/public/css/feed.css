@@ -44,7 +44,7 @@ button {
 
 /*Header */
 
-header{
+#header-main-feed{
   background-color: var(--Bgbranco-secundario);
   height: 88px;
   width: 100%;
@@ -55,13 +55,13 @@ header{
   z-index: 56;
 }
 
-header img{
+#header-main-feed img{
   height: 70%;
 }
 
 /* POST  */
 
-.feed{
+.main-feed{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -69,6 +69,7 @@ header img{
   gap: 40px;
   margin-top: 120px;
   margin-bottom: 30px;
+  width: 33%;
 }
 
 .post{
@@ -92,7 +93,7 @@ header img{
   justify-content: space-between;
 }
 
-section{
+#post-text-container{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -126,7 +127,7 @@ section{
   height: 18%;
   width: 18%;
 }
-*#tres-pontos{
+#tres-pontos{
   height: 32px;
   width: 32px;
   margin-right: 10px;
@@ -146,15 +147,14 @@ section{
 
 
 
-  .container {
+  .main-feed-container {
     display: flex;
     justify-content: space-between;
-
   }
   
   /* DIV DA ESQUERDA */
   
-  .esquerda {
+  .main-feed-left {
     width: 25%;
     background-color: rgb(255, 255, 255);
   }
@@ -176,7 +176,7 @@ section{
     margin-right: 10px;
   }
   
-  .esquerda ul {
+  .main-feed-left ul {
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -188,8 +188,12 @@ section{
     bottom: 400px;
 }
   
-  li {
+  .main-feed-left li {
   list-style-type: none;
+  }
+
+  .main-feed-left h1 {
+    font-family: "Bogart Regular", sans-serif;
   }
   
   #home-hover{
@@ -206,19 +210,7 @@ section{
     padding: 8px 10px ;
   }
   
-  h1 {
-    font-family: "Bogart Regular", sans-serif;
-  }
-  
   /* DIV DO MEIO */
-  
-  .meio {
-    background-color: rgb(255, 255, 255);
-    width: 40%;
-    z-index: 55;
-    border: 3px solid var(--Bgbranco-secundario);
-    border-top: none;
-  }
   
   .banner {
     background-color: black;
@@ -236,9 +228,22 @@ section{
     font-size: 24px;
   }
 
-  
+  .post h1 {
+    font-family: "Bogart Regular", sans-serif;
+  }
+  .main-feed {
+    background-color: rgb(255, 255, 255);
+    width: 40%;
+    z-index: 55;
+    border: 3px solid var(--Bgbranco-secundario);
+    border-top: none;
+  }
+  .container-card {
+    width: 100%;
+    height: auto;
+  }
   /* DIV DA DIREITA */
-  .direita {
+  .main-feed-rigth {
     width: 25%;
     background-color: rgb(255, 255, 255);
     height: 920px;

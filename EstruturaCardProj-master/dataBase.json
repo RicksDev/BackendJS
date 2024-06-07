@@ -1,0 +1,22 @@
+{
+    "results": [
+      {
+        "user_image": "Src/public/img/user.png",
+        "username": "user1",
+        "desc": "Esta é a descrição do primeiro post",
+        "post_image": "public/image/teste.png"
+      },
+      {
+        "user_image": "Src/public/img/user.png",
+        "username": "user2",
+        "desc": "Esta é a descrição do segundo post",
+        "post_image": "public/image/teste2.png"
+      },
+      {
+        "user_image": "Src/public/img/user.png",
+        "username": "user3",
+        "desc": "Esta é a descrição do terceiro post",
+        "post_image": "public/image/teste3.png"
+      }
+    ]
+  }

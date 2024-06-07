@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Perfil | User</title>
     <link rel="stylesheet" href="Src/public/css/feed.css" />
+    <link rel="stylesheet" href="Src/public/css/cardStyle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,18 +15,18 @@
   </head>
   <body>
 
-<header>
+<header id="header-main-feed">
   <img src="Src/public/img/Inspired-removebg-preview (1)cort.png" alt="">
 </header>
 
-    <div class="container">
-      <div class="esquerda">
+    <div class="main-feed-container">
+      <div class="main-feed-left">
         
         <ul>
           <li>
             <div class="flex-item" id="home-hover">
               <img class="logoHome" src="Src/public/img/home.png" alt="" srcset="" />
-              <h1 >Home</h1>
+              <h1>Home</h1>
             </div>
           </li>
           <li>
@@ -36,97 +37,17 @@
           </li>
           <li>
             <button class="botaoPost"><strong>POSTAR</strong></button>
-
           </li>
         </ul>
       </div>
-      <div class="meio">
-        
-        <div class="feed">
-          <div class="post">
-
-        <div class="header-post">
-          <ul>
-            <div id="avatar-align">
-              <img src="Src/public/img/usuario.png" id="avatar" alt="" />
-              <h1 id="name">titulo</h1>
-            </div>
-          </ul>
+        <div class="main-feed">
+          <div class="container-card" id="container-card"></div>
         </div>
-        <section>
-          <h1 id="text-content">
-Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia odio officia inventore voluptate. Eligendi assumenda animi commodi temporibus debitis dolorum soluta quas fugit voluptatibus. Omnis similique excepturi dignissimos nihil iure.
-
-          </h1>
-          <div class="img-content">
-            <img src="${urlImg + element.imageUrl}" alt="Post image" />
-          </div>
-          <div class="actions">
-            <button class="button like">
-              <img src="${initialImage}" alt="like" class="img like-img" />
-            </button>
-          </div>
-        </section>
-      </div>
-
-      <div class="post">
-        <div class="header-post">
-          <ul>
-            <div id="avatar-align">
-              <img src="Src/public/img/usuario.png" id="avatar" alt="" />
-              <h1 id="name">titulo</h1>
-            </div>
-          </ul>
+        <div class="main-feed-rigth">
+          <img class="imgMao" src="Src/public/img/Login e Cadastro (4) 1.png" alt="" />
+          <img class="imgBoneco" src="Src/public/img/Login e Cadastro (5) 1.png" alt="" />
         </div>
-        <section>
-          <h1 id="text-content">
-Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia odio officia inventore voluptate. Eligendi assumenda animi commodi temporibus debitis dolorum soluta quas fugit voluptatibus. Omnis similique excepturi dignissimos nihil iure.
 
-          </h1>
-          <div class="img-content">
-            <img src="${urlImg + element.imageUrl}" alt="Post image" />
-          </div>
-          <div class="actions">
-            <button class="button like">
-              <img src="${initialImage}" alt="like" class="img like-img" />
-            </button>
-          </div>
-        </section>
-      </div>
-
-      <div class="post">
-        <div class="header-post">
-          <ul>
-            <div id="avatar-align">
-              <img src="Src/public/img/usuario.png" id="avatar" alt="" />
-              <h1 id="name">titulo</h1>
-            </div>
-          </ul>
-        </div>
-        <section>
-          <h1 id="text-content">
-Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia odio officia inventore voluptate. Eligendi assumenda animi commodi temporibus debitis dolorum soluta quas fugit voluptatibus. Omnis similique excepturi dignissimos nihil iure.
-
-          </h1>
-          <div class="img-content">
-            <img src="${urlImg + element.imageUrl}" alt="Post image" />
-          </div>
-          <div class="actions">
-            <button class="button like">
-              <img src="${initialImage}" alt="like" class="img like-img" />
-            </button>
-          </div>
-        </section>
-      </div>
-
-      </div>
-
-
-      </div>
-      <div class="direita">
-        <img class="imgMao" src="Src/public/img/Login e Cadastro (4) 1.png" alt="" />
-        <img class="imgBoneco" src="Src/public/img/Login e Cadastro (5) 1.png" alt="" />
-      </div>
-    </div>
+    <script src="Src/js/index.js"></script>
   </body>
 </html>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Perfil | User</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="cardStyle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -51,8 +52,10 @@
               <h1>Profile</h1>
             </div>
           </li>
+          <li>
+            <button class="botaoPost"><strong>POSTAR</strong></button>
+          </li>
         </ul>
-        <button class="botaoPost"><strong>POSTAR</strong></button>
       </div>
       <div class="meio">
         <div class="banner">
@@ -105,30 +108,17 @@
             <h2>Posts</h2>
             <div class="linha"></div>
           </div>
-          <div class="card">
-            <div class="usuario_feed">
-             
-              <img src="img/usuario.png" alt=""  class="foto_usuario_feed"/>
-              <p class="nome_usuario_feed">Username</p>
-              <button class="options__icon" id="optionsIcon">
-                <span></span>
-                <span></span>
-                <span></span>
-              </button>
-              <div class="options__menu" id="optionsMenu">
-                <button class="option" id="editOption">Editar</button>
-                <button class="option" id="deleteOption">Excluir</button>
-              </div> 
           
-            </div>   
           </div>
-        </div>
+        <div class="container-card" id="container-card">
+          </div>
       </div>
       <div class="direita">
         <img class="imgMao" src="img/Login e Cadastro (4) 1.png" alt="" />
         <img class="imgBoneco" src="img/Login e Cadastro (5) 1.png" alt="" />
       </div>
     </div>
-    <script src="js/index.js"></script>
+
+    <script src="public/js/index.js"></script>
   </body>
 </html>
