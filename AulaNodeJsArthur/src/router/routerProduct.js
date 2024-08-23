@@ -2,12 +2,13 @@ const { Router } = require('express');
 const routerProduct = Router();
 
 const productController = require('../controller/productController');
+const { validateProduct, validateProductID } = require('../middlewares/ValidateProduct');
 
-routerProduct.post('/', (req,res) => {
+routerProduct.post('/', validateProduct, (req,res) => {
     productController.create(req,res)
 });
 
-routerProduct.get('/', (req,res) => {
+routerProduct.get('/', validateProduct, validateProductID, (req,res) => {
     productController.getAll(req,res);
 });
 
@@ -17,16 +18,16 @@ routerProduct.get('/', (req,res) => {
 
 // {body: {id: "3212"} } => (Body)
 
-routerProduct.delete('/:id', (req,res) => {
+routerProduct.delete('/:id', validateProductID, (req,res) => {
     productController.delete(req,res);
 });
 
-routerProduct.put('/:id', (req,res) => {
+routerProduct.put('/:id',  validateProduct, validateProductID,(req,res) => {
     productController.update(req,res);
 });
 
-routerProduct.get('/:id', (req,res) => {
+routerProduct.get('/:id', validateProductID, (req,res) => {
     productController.getOne(req,res);
 });
 
-module.exports = routerProduct;
+module.exports = routerCliente;

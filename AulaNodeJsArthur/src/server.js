@@ -1,6 +1,10 @@
 const express = require ('express'); //Serivdor em JS
-const router = require('./router/router');
+const router = require('./router/routerUser');
+
 const routerProduct = require('./router/routerProduct');
+const routerCliente = require('./router/routerCliente')
+
+const routerUser = require('./router/routerUser')
 const sequelize = require('./config/config');
 const User = require('./models/User');
 const app = express();
@@ -8,9 +12,11 @@ const app = express();
 //Modelo da API JSON
 app.use(express.json());
 
-app.use('/api/user', router);
+app.use('/api/user', routerUser);
 
 app.use('/api/product', routerProduct);
+
+app.use('/api/cliente', routerCliente);
 //Req -> A requisição, ou seja, o que recebe do servidor
 //Res -> O Response, o que enviamos ao servidor
 app.get('/healthcheck', (req,res) => {
