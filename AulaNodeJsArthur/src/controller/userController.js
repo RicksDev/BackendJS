@@ -1,14 +1,56 @@
 //Onde irão ficar as principais configurações do nosso usuário
  const User = require('../models/User')
+ const jwt = require('jsonwebtoken')
+
+ const bcrypt = require('bcryptjs');
 const userController = {
   //async quando vai demorar mais que o normal, usamos o await para esperar essa função. O Await precisa o async e vice-versa.
+
+  login: async (req,res) => {
+    try{
+      const { email, senha } = req.body;
+
+      const user = await User.findOne({ where: { email } });
+      if(!user) {
+        return res.status(400).json({
+          msg:'E-mail ou senha incorretos!'
+        })
+      };
+
+      const isValida = await bcrypt.compare(senha, user.senha);
+      if(!isValida) {
+        return res.status(400).json({
+          msg:"E-mail ou senha incorretos!"
+        })
+      }
+
+      const token = jwt.sign({ email:user.email, nome: user.nome },
+        process.env.SECRET, { expiresIn:'1h' }
+      );
+      return res.status(200).json({
+        msg:'Login realizado',
+        token
+      })
+
+
+
+    } catch(error) {
+      console.log(error);
+      return res.status(500).json({msg: 'Acione o suporte'});
+    }
+  },
+
 
   create: async (req, res) => {
     try {
       //formulário com method POST
       const { nome, email, senha } = req.body;
 
-      const userCriado = await User.create({ nome, email, senha });
+      const hashSenha = await bcrypt.hash(senha, 10);
+
+
+
+      const userCriado = await User.create({ nome, email, senha : hashSenha });
 
       return res.status(200).json({
         msg: "Usuario criado com sucesso",

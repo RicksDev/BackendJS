@@ -15,6 +15,10 @@ router.get('/', validateAmbienteID,validateUser, (req,res) => {
     userController.getAll(req,res);
 });
 
+router.post('/login', (req, res) => {
+    userController.login(req,res);
+})
+
 // /api/users/:id => Isso é um modelo de (params)
 
 // api/users?id=3216 => Isto é uma (Query)

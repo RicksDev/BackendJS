@@ -1,5 +1,5 @@
 const express = require ('express'); //Serivdor em JS
-const router = require('./router/routerUser');
+require('dotenv').config();
 
 const routerProduct = require('./router/routerProduct');
 const routerCliente = require('./router/routerCliente')
@@ -27,12 +27,13 @@ app.get('/healthcheck', (req,res) => {
 });
 
 sequelize.authenticate()
+
 .then(() => {
     console.log("Conexão estabelecida com sucesso");
     return sequelize.sync();
 })
 .then(() => {
-    app.listen(8080, (req, res) => {
+    app.listen(process.env.PORT == null ? 8080: process.env.PORT, (req, res) => {
         console.log('O servidor está rondando na porta 8080. http://127.0.0.1:8080');
         
     });

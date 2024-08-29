@@ -30,4 +30,4 @@ routerProduct.get('/:id', validateProductID, (req,res) => {
     productController.getOne(req,res);
 });
 
-module.exports = routerCliente;
+module.exports = routerProduct;
