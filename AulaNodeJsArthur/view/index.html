@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upload de imagem</title>
+  </head>
+  <body>
+    <h1>Upload de imagem</h1>
+    <form action="http://localhost:8080/api/image/upload" method="post" enctype="multipart/form-data">
+      <input type="file" name="image" accept="image/*" />
+      <button type="submit">Enviar</button>
+    </form>
+    <h2>Imagens Salvas:</h2>
+    <ul id="image-list"></ul>
+  </body>
+  <script>
+    fetch('http://localhost:8080/api/image/images')
+        .then(response => response.json())
+        .then(images => {
+            const imageList = document.getElementById('image-list');
+            images.forEach (image => {
+                const li = document.createElement('li');
+                const img = document.createElement('img');
+                img.src = `htpp://localhost:8080/api/image/${image}`;
+                img.style.maxWidth = '200px';
+                li.appendChild(img);
+                imageList.appendChild(li);
+            })
+        })
+  </script>
+</html>

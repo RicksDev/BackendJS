@@ -2,7 +2,8 @@ const express = require ('express'); //Serivdor em JS
 require('dotenv').config();
 
 const routerProduct = require('./router/routerProduct');
-const routerCliente = require('./router/routerCliente')
+const routerCliente = require('./router/routerCliente');
+const routerUpload = require('./router/routerUpload');
 
 const routerUser = require('./router/routerUser')
 const sequelize = require('./config/config');
@@ -11,6 +12,7 @@ const app = express();
 
 //Modelo da API JSON
 app.use(express.json());
+app.use('/api/image', routerUpload)
 
 app.use('/api/user', routerUser);
 
