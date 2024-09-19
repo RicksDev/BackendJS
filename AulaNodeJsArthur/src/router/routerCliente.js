@@ -7,7 +7,7 @@ const router = Router();
 
 //Configurar as rotas (CRUD);
 
-router.post('/', validateCliente, (req,res) => {
+router.post('/', validate   Cliente, (req,res) => {
     clienteController.create(req,res)
 });
 

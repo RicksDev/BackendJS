@@ -12,6 +12,8 @@ const app = express();
 
 //Modelo da API JSON
 app.use(express.json());
+app.use(cors());
+
 app.use('/api/image', routerUpload)
 
 app.use('/api/user', routerUser);

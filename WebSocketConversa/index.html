@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Aleatório</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+ 
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            padding: 20px;
+        }
+ 
+        div {
+            margin-bottom: 10px;
+        }
+ 
+        label {
+            font-size: 18px;
+            margin-right: 10px;
+            color: #333;
+        }
+ 
+        #username, #input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            width: 100%;
+            max-width: 250px;
+        }
+ 
+        #connect, #disconnect, button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            margin-top: 20px;
+            margin-left: 130px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+ 
+        #connect:hover, #disconnect:hover, button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+ 
+        #chat {
+            width: 100%;
+            max-width: 400px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: none; /* Escondido por padrão até conectar */
+        }
+ 
+        #messages {
+            height: 250px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            padding: 10px;
+            overflow-y: auto;
+            background-color: #f9f9f9;
+        }
+ 
+        #form {
+            display: flex;
+            align-items: center;
+        }
+ 
+        #input {
+            flex-grow: 1;
+        }
+ 
+        #form button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 10px;
+            transition: background-color 0.3s ease;
+        }
+ 
+        #form button:hover {
+            background-color: #0056b3;
+        }
+ 
+        /* Estilo para as mensagens */
+        .message {
+            padding: 8px 12px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+ 
+        .message.system {
+            background-color: #e0e0e0;
+            color: #333;
+        }
+ 
+        .message.user {
+            background-color: #007BFF;
+            color: white;
+            align-self: flex-end;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <label for="username">Nome:</label>
+        <input type="text" id="username">
+        <button id="connect">Conectar</button>
+    </div>
+    <div id="chat">
+        <div id="messages"></div>
+        <form id="form" action="">
+            <input id="input" autocomplete="off" placeholder="Digite sua mensagem...">
+            <button type="submit">Enviar</button>
+        </form>
+        <button id="disconnect">Desconectar</button>
+    </div>
+ 
+<script>
+    const socket = io();
+    const chatDiv = document.getElementById('chat');
+    const connectButton = document.getElementById('connect');
+    const disconnectButton = document.getElementById('disconnect');
+    const usernameInput = document.getElementById('username');
+    const messageDiv = document.getElementById('messages');
+ 
+    connectButton.addEventListener('click', () => {
+        const username = usernameInput.value;
+        if (username) {
+            socket.emit('set username', username);
+            chatDiv.style.display = 'block';
+        } else {
+            alert('Por favor, insira um nome');
+        }
+    });
+ 
+    document.getElementById('form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const input = document.getElementById('input');
+        if (input.value.trim()) {
+            socket.emit('chat message', input.value);
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message', 'user');
+            messageElement.innerText = input.value;
+            messageDiv.appendChild(messageElement);
+            messageDiv.scrollTop = messageDiv.scrollHeight; // Rola para a última mensagem
+            input.value = '';
+        }
+    });
+ 
+    disconnectButton.addEventListener('click', () => {
+        socket.emit('manual disconnect');
+        chatDiv.style.display = 'none';
+        messageDiv.innerHTML = ''; // Limpa as mensagens ao desconectar
+    });
+ 
+    socket.on('waiting', (msg) => {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('message', 'system');
+        messageElement.innerText = msg;
+        messageDiv.appendChild(messageElement);
+        messageDiv.scrollTop = messageDiv.scrollHeight;
+    });
+ 
+    socket.on('chat start', (msg) => {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('message', 'system');
+        messageElement.innerText = msg;
+        messageDiv.appendChild(messageElement);
+        messageDiv.scrollTop = messageDiv.scrollHeight;
+    });
+ 
+    socket.on('chat message', (msg) => {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('message', 'system'); // Pode ser alterado para 'user' se for de outro usuário
+        messageElement.textContent = msg;
+        messageDiv.appendChild(messageElement);
+        messageDiv.scrollTop = messageDiv.scrollHeight; // Rola automaticamente
+    });
+ 
+    socket.on('chat end', (msg) => {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('message', 'system');
+        messageElement.textContent = msg;
+        messageDiv.appendChild(messageElement);
+        messageDiv.scrollTop = messageDiv.scrollHeight;
+    });
+</script>
+</body>
+</html>
