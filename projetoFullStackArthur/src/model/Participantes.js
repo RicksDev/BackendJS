@@ -13,13 +13,15 @@ const Participantes = sequelize.define('participantes', {
     },
     eventoId: {
         type: DataTypes.INTEGER,
+        allowNull : false,
+        onDelete : 'CASCADE',
         references: {
             model: Evento,
-            key: id,
+            key: "id",
         },
     },
 });
 
-Evento.belongsToMany(Evento, { through: Participantes });
+
 
 module.exports = Participantes;

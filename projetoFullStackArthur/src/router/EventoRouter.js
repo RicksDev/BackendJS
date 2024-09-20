@@ -4,11 +4,11 @@ const { validateEvento, validateEventoId } = require('../middlewares/validateEve
 
 const eventoController = require('../controller/EventoController');
 
-router.post('/', validateEvento, validateEventoId, (req, res) => {
+router.post('/', validateEvento,  (req, res) => {
     eventoController.create(req,res)
 });
 
-router.get('/', validateEventoId, (req, res) => {
+router.get('/', (req, res) => {
     eventoController.getAll(req,res);
 });
 

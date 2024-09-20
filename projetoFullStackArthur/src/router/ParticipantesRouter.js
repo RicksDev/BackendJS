@@ -8,7 +8,7 @@ router.post('/', validateParticipantes, (req, res) => {
     participantesController.create(req,res);
 });
 
-router.get('/', validateParticipantes, validateParticipantesId, (req, res) => {
+router.get('/', (req, res) => {
     participantesController.getAll(req, res);
 });
 

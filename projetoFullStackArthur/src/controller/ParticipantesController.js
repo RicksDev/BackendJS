@@ -94,6 +94,8 @@ const participantesController = {
                     msg:'Participante não encontrado'
                 });
             }
+
+            await participante.destroy();
             return res.status(200).json({
                 msg:'Participante deletado com sucesso!'
             });

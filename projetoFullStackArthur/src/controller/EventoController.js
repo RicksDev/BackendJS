@@ -97,6 +97,7 @@ const EventoController = {
                 msg:'Evento não encontrado'
             })
         }
+        await evento.destroy();
         return res.status(200).json({
             msg:'Evento deletado com sucesso'
         })

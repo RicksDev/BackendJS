@@ -18,10 +18,9 @@ app.get('/healthcheck', (req,res) => {
 });
 
 sequelize.authenticate()
-
 .then(() => {
     console.log('Conexão estabelecida com sucesso!');
-    return res.sequelize.sync();
+    return sequelize.sync();
 })
 .then(() => {
     app.listen(process.env.PORT == null ? 3000 : process.env.PORT, (req, res) => {
