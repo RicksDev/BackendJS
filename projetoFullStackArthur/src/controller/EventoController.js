@@ -1,4 +1,5 @@
 const Evento = require("../model/Evento");
+const Participantes = require("../model/Participantes");
 const { getAll } = require("./ParticipantesController");
 
 const EventoController = {
@@ -109,7 +110,31 @@ const EventoController = {
             msg: 'Acione o suporte'
         })
     }
-  }
+  },
+  
+  getEvents : async ( req, res ) => {
+    try {   
+        const { id } = req.params;
+
+        const participantes = await Participantes.findAll( { 
+            where: {eventoId : id}
+        });
+
+        if (!participantes) {
+            return res.status(404).json({
+                msg:'Não possui participantes escritos no evento'
+            })
+        };
+        return res.status(200).json({
+            participantes
+        })
+        
+    } catch (error) {
+        return res.status(404).json({
+            msg:'Erro ao buscar participante do evento específico'
+        })
+    }
+}
 };
 
 module.exports = EventoController;

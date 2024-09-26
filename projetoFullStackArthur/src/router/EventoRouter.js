@@ -24,6 +24,10 @@ router.delete('/:id', validateEventoId, (req, res) => {
     eventoController.delete(req, res);
 });
 
+router.get('/:id/participantes', validateEventoId, (req, res) => {
+    eventoController.getEvents(req,res);
+})
+
 router.get('/:id/participantes', )
 
 module.exports = router;

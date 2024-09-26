@@ -1,3 +1,4 @@
+const { where } = require('sequelize');
 const Participantes = require('../model/Participantes');
 const participantesController = {
 
@@ -5,13 +6,28 @@ const participantesController = {
         try{
 
             const { nome, email, eventoId } = req.body;
-    
+
+            //Verificação se já existe um e-mail cadastrado em algum evento
+            const ifEmail = await Participantes.findOne({
+                where: {email: email}
+            })
+            //Continuação da verificação
+            if (ifEmail) {
+                return res.status(500).json({
+                    msg:'E-mail já cadastrado no evento'
+                });
+            }
+
             const participanteCriado = await Participantes.create({ nome, email, eventoId });
+
+            
     
             return res.status(200).json({
                 msg:'Participante criado com sucesso!',
                 participante: participanteCriado
-            })
+            });
+
+
         } catch (error) {
             console.error(error);
             return res.status(500).json({
@@ -105,7 +121,33 @@ const participantesController = {
                msg: 'Acione o suporte'
             });
         }
+    },
+
+    getParticipantes : async (req, res) => {
+        try {
+            const { eventoId } = req.params;
+
+            const participantes = await Participantes.findAll( {
+                where: { eventoId : eventoId}
+            });
+
+            if(!participantes) {
+                return res.status(404).json({
+                    msg:'Não foram encontrados os participantes'
+                })
+            };
+
+            return res.status(200).json({
+                participantes
+            });
+        } catch (error) {
+            return res.status(500).json({
+                msg:'Participantes não encontrados'
+            })
+        }
     }
+    
+
 
 };
 

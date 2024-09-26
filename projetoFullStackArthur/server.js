@@ -15,7 +15,7 @@ app.get('/healthcheck', (req,res) => {
         msg: 'Estamos Vivos!',
         alive: true
     })
-});
+})
 
 sequelize.authenticate()
 .then(() => {
