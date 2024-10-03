@@ -17,7 +17,7 @@ const participantesController = {
                     msg:'E-mail já cadastrado no evento'
                 });
             }
-
+                                                  
             const participanteCriado = await Participantes.create({ nome, email, eventoId });
 
             
