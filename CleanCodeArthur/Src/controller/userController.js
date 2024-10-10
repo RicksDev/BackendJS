@@ -35,14 +35,19 @@ const userController = {
     },
     getAll: async (req, res) => {
         try{
-            const usser = await userService.getAll();
+            const user = await userService.getAll();
+            if(!user) {
+                return res.status(404).json({
+                    msg:"Usuario nao encontrado"
+                })
+            }
             return res.status(200).json({
                 msg:'Todos o usuarios!',
-                users
+                user,
             })
         } catch (error) {
             return res.status(500).json({
-                msg:'Ocorreu um erro no servidor'
+                msg:'Ocorreu um erro no servidor AAAAAAAA'
             });
         }
 
@@ -58,6 +63,7 @@ const userController = {
             }
             return res.status(200).json({
                 msg:'Usuario encontrado',
+                user
                 
             })
         } catch (error) {

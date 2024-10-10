@@ -31,6 +31,7 @@ const userService = {
             if(!user) {
                 return null;
             }
+            return user;
         } catch (error) {
             throw new Error('Ocorreu um erro ao buscar o único user')
         }

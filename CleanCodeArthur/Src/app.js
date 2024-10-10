@@ -1,9 +1,13 @@
 require ('dotenv').config(); //Arquiv => .env
 const express = require('express');
 const { sequelize } = require('./models');
+const routes = require('./router/router')
 
 const app = express(); //Iniciando servidor
 app.use(express.json()); // Resposta via JSON
+
+// vai ser /api/user/
+app.use('/api', routes);
 
 sequelize.authenticate()
     .then(() => {
