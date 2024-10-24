@@ -1,4 +1,4 @@
-const validadeAdmin = (req, res, next) => {
+const validateAdmin = (req, res, next) => {
 
     const { nome, email, senha } = req.body;
 
@@ -26,7 +26,7 @@ const validadeAdmin = (req, res, next) => {
     next();
 }
 
-const validadeAdminId = (req, res, next) => {
+const validateAdminId = (req, res, next) => {
     const { id } = req.params;
 
     if(!id|| typeof id!== 'string') {
@@ -38,4 +38,4 @@ const validadeAdminId = (req, res, next) => {
     next();
 }
 
-module.exports = { validadeAdmin, validadeAdminId };
+module.exports = { validateAdmin, validateAdminId };

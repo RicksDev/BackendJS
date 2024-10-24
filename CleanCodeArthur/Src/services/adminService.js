@@ -1,5 +1,6 @@
 const Admin = require('../models/admin');
 const { getById } = require('./userService');
+const jwt = require('jsonwebtoken');
 
 const adminService = {
     create: async (admin) => {
@@ -37,19 +38,17 @@ const adminService = {
             throw new Error('Ocorreu um erro ao buscar único Admin');
         }
     },
-    getAll: async (id) => {
+    getAll: async () => {
         try{
-            const admin = await Admin.findByPk(id);
-            if(!admin) {
-                return null;
-            }
+            return await Admin.findAll();
+          
         } catch (error) {
             throw new Error('Ocorreu um erro ao criar Admin');
         }
     },
     delete: async (id) => {
         try{
-            const admin = await User.findByPk(id);
+            const admin = await Admin.findByPk(id);
             if(!admin) {
                 return null;
             }
@@ -57,6 +56,30 @@ const adminService = {
             return admin;
         } catch(error) {
             throw new Error('Ocorreu um erro ao deletar o user');
+        }
+    },
+    login : async (data) => {
+        try {
+            const adm = await Admin.findOne({
+                where : {
+                    email : data.email,
+                    senha : data.senha
+                }
+            })
+
+            if(!adm){
+                return null
+            }
+
+            const token = jwt.sign({
+                email : data.email,
+                id : data.id
+            }, process.env.SECRET, {expiresIn : '1h'})
+
+            return token
+        } catch (error) {
+            console.error(error);
+            throw new Error('Ocorreu um erro ao fazer login');
         }
     }
 };

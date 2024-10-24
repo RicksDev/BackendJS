@@ -1,6 +1,40 @@
 const userService = require("../services/userService")
 
 const userController = {
+
+      login: async (req,res) => {
+    try{
+      const { email, senha } = req.body;
+
+      const user = await User.findOne({ where: { email } });
+      if(!user) {
+        return res.status(400).json({
+          msg:'E-mail ou senha incorretos!'
+        })
+      };
+
+      const isValida = await bcrypt.compare(senha, user.senha);
+      if(!isValida) {
+        return res.status(400).json({
+          msg:"E-mail ou senha incorretos!"
+        })
+      }
+
+      const token = jwt.sign({ email:user.email, nome: user.nome },
+        process.env.SECRET, { expiresIn:'1h' }
+      );
+      return res.status(200).json({
+        msg:'Login realizado',
+        token
+      })
+
+
+
+    } catch(error) {
+      console.log(error);
+      return res.status(500).json({msg: 'Acione o suporte'});
+    }
+  },
     create: async (req, res) => {
         try{
             const user = await userService.create(req.body);
@@ -74,9 +108,11 @@ const userController = {
     },
     delete: async (req, res) => {
         try {
+
             const user = await userService.delete(req.params.id);
+
             if(!user) {
-                return res.status(400).jon({
+                return res.status(400).json({
                     msg:'Usuario não encontrado'
                 })
             }
@@ -85,6 +121,7 @@ const userController = {
                 msg: 'Usuario deletado com sucesso!'
             })
         } catch (error) {
+            console.error(error)
             return res.status(500).json({
                 msg:'Ocorreu um erro no servidor'
             });

@@ -14,4 +14,6 @@ router.get('/:id', validateAdminId , adminController.getoOne);
 
 router.get('/', adminController.getAll);
 
+router.post('/login', adminController.login);
+
 module.exports = router;
