@@ -1,4 +1,4 @@
-const Administrador = require('../model/Administrador');
+const Administrador = require('../model/Administradores');
 
 
 const administradorService = {
