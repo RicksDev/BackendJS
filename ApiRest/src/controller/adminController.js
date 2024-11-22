@@ -82,6 +82,7 @@ const adminController = {
                 });
             }
 
+            await admin.destroy();
             return res.status(200).json({
                 msg: 'Administrador encontrado e deletado com sucesso!',
                 admin

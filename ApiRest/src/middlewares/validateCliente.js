@@ -1,5 +1,14 @@
+const express = require('express');
+const app = express();
+
+app.use(express.json());
+
+
+
+
 const validateCliente = (req, res, next) => {
     const { nome, email } = req.body;
+    
 
     if (!nome || typeof nome !== 'string') {
         return res.status(400).json({

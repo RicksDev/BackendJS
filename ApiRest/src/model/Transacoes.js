@@ -25,7 +25,7 @@ const Transacoes = sequelize.define ('transacoes', {
         allowNull: false
     },
     dataTransacao: {
-        type: DataTypes.DATE,
+        type: DataTypes.STRING,
         allowNull: false
     }
 

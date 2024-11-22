@@ -6,7 +6,7 @@ const Notificacoes = sequelize.define('notificacoes', {
     idCliente: {
         type: DataTypes.INTEGER,
         references: {
-            model: 'clientes',
+            model: 'cliente',
             key: 'id'
         },
         onUpdate: 'CASCADE',
@@ -17,7 +17,7 @@ const Notificacoes = sequelize.define('notificacoes', {
         allowNull: false
     },
     dataNotificacao: {
-        type: DataTypes.DATE,
+        type: DataTypes.STRING,
         allowNull: false
     }
 

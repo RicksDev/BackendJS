@@ -17,7 +17,7 @@ const transacoesController = {
 
     update: async (req, res) => {
         try {
-            const transacao = await transacoesService.update(req.params.id, req.body);
+            const transacao = await transacoesService.update(req.params.id, req.bodys);
             if (!transacao) {
                 return res.status(400).json({
                     msg: 'Transação não encontrada'

@@ -1,17 +1,17 @@
 const { Router } = require('express');
 const contasController = require('../controller/contaController');
-const { validateContas, validateContaId } = require('../middlewares/validateContas');
+const { validateContas, validateContasId } = require('../middlewares/validateContas');
 
 const router = Router();
 
 
 router.post('/', validateContas, contasController.create);
 
-router.put('/:id', validateContaId, validateContas, contasController.update);
+router.put('/:id', validateContasId, validateContas, contasController.update);
 
-router.delete('/:id', validateContaId, contasController.delete);
+router.delete('/:id', validateContasId, contasController.delete);
 
-router.get('/:id', validateContaId, contasController.getOne);
+router.get('/:id', validateContasId, contasController.getOne);
 
 router.get('/', contasController.getAll);
 

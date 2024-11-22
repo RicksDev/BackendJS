@@ -7,7 +7,7 @@ const Contas = sequelize.define('contas', {
     idCliente: {
         type: DataTypes.INTEGER,
         references: {
-            model: 'cliente',
+            model: 'clientes',
             key: 'id'
         },
         onUpdate: 'CASCADE',

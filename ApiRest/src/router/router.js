@@ -16,8 +16,4 @@ router.use('/notificacoes', notificacoesRoutes);
 
 router.use('/transacoes', transacoesRoutes);
 
-
-
-
-
 module.exports = router;

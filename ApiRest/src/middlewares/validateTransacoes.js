@@ -25,7 +25,7 @@ const validateTransacoes = (req, res, next) => {
         });
     }
 
-    if (!dataTransacao || isNaN(new Date(dataTransacao).getTime())) {
+    if (!dataTransacao || typeof dataTransacao !== 'string') {
         return res.status(400).json({
             msg: 'Campo dataTransacao inválido'
         });
