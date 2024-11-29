@@ -1,6 +1,54 @@
+const administradorService = require('../service/administradoresService');
 const adminService = require('../service/administradoresService');
 
 const adminController = {
+
+    login: async (req, res) => {
+         // const { email, senha } = req.body;
+
+      const data = {
+        email : req.body.email,
+        senha : req.body.senha
+      }
+
+      const adm = await administradorService.login(data);
+
+    //   if(!adm){
+    //     return res.status(500).json({
+    //       msg: "login nao encontrado",
+    //     });
+    //   }
+
+    //   return res.status(200).json({
+    //     msg: "Login sucesso",
+    //     token : adm
+    //   });
+
+      
+      if (!adm) {
+        return res.status(400).json({
+          msg: "E-mail ou senha incorretos!",
+        });
+      }
+
+      const isValida = await bcrypt.compare(senha, adm.senha);
+      if (!isValida) {
+        return res.status(400).json({
+          msg: "E-mail ou senha incorretos!",
+        });
+      }
+
+      const token = jwt.sign(
+        { email: adm.email, senha: adm.senha },
+        process.env.SECRET,
+        { expiresIn: "1h" }
+      );
+      return res.status(200).json({
+        msg: "Login realizado",
+        token,
+      });
+    },
+
     create: async (req, res) => {
         try {
             const admin = await adminService.create(req.body);
