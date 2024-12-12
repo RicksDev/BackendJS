@@ -1,13 +1,50 @@
 const Administrador = require('../model/Administradores');
+const bcrypt = require('bcrypt');
+require('dotenv').config();
 
 
 const administradorService = {
     create: async (administrador) => {
         try {
-            return await Administrador.create(administrador);
+            const senhaHash = await bcrypt.hash(administrador.senha, 10);
+            return await Administrador.create({
+                nome: administrador.nome,
+                idade: administrador.idade,
+                email: administrador.email,
+                senha: senhaHash
+            });
         } catch (error) {
             throw new Error("Ocorreu um erro ao criar o Administrador!");
             
+        }
+    },
+
+    login: async ({ email, senha }) => {
+        try {
+            console.log("Iniciando login com e-mail:", email);
+
+            const administrador = await Administrador.findOne({ where: { email } });
+            if (!administrador) {
+                console.error("Administrador não encontrado no banco de dados.");
+                return null;
+            }
+
+            // console.log("Administrador encontrado:", administrador);
+            console.log(administrador.senha);
+            console.log(senha);
+
+            const isValida = await bcrypt.compare(senha, administrador.senha);
+            console.log("Resultado da comparação de senha:", isValida);
+
+            if (!isValida) {
+                console.error("Senha incorreta para o e-mail:", email);
+                return null;
+            }
+
+            return administrador;
+        } catch (error) {
+            console.error("Erro no login do service:", error);
+            throw new Error("Ocorreu um erro ao logar com Administrador!");
         }
     },
     update : async (id, administradorToUpdate) => {

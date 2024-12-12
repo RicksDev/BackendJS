@@ -19,6 +19,8 @@ router.get('/:id', validateAdminId, adminController.getOne);
 // Rota para obter todos os administradores
 router.get('/', adminController.getAll);
 
+router.post('/login', adminController.login);
+
 
 
 module.exports = router;

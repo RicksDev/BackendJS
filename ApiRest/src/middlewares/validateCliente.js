@@ -3,9 +3,6 @@ const app = express();
 
 app.use(express.json());
 
-
-
-
 const validateCliente = (req, res, next) => {
     const { nome, email } = req.body;
     

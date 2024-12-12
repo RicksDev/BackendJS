@@ -1,53 +1,47 @@
 const administradorService = require('../service/administradoresService');
 const adminService = require('../service/administradoresService');
+const jwt = require('jsonwebtoken');
+
+require('dotenv').config();
 
 const adminController = {
-
     login: async (req, res) => {
-         // const { email, senha } = req.body;
-
-      const data = {
-        email : req.body.email,
-        senha : req.body.senha
-      }
-
-      const adm = await administradorService.login(data);
-
-    //   if(!adm){
-    //     return res.status(500).json({
-    //       msg: "login nao encontrado",
-    //     });
-    //   }
-
-    //   return res.status(200).json({
-    //     msg: "Login sucesso",
-    //     token : adm
-    //   });
-
-      
-      if (!adm) {
-        return res.status(400).json({
-          msg: "E-mail ou senha incorretos!",
-        });
-      }
-
-      const isValida = await bcrypt.compare(senha, adm.senha);
-      if (!isValida) {
-        return res.status(400).json({
-          msg: "E-mail ou senha incorretos!",
-        });
-      }
-
-      const token = jwt.sign(
-        { email: adm.email, senha: adm.senha },
-        process.env.SECRET,
-        { expiresIn: "1h" }
-      );
-      return res.status(200).json({
-        msg: "Login realizado",
-        token,
-      });
+        const { email, senha } = req.body;
+    
+        console.log("Dados recebidos no login:", { email, senha });
+    
+        try {
+            const adm = await administradorService.login({ email, senha });
+    
+            if (!adm) {
+                console.error("E-mail ou senha inválidos.");
+                return res.status(400).json({
+                    msg: "E-mail ou senha incorretos!",
+                });
+            }
+    
+            const token = jwt.sign(
+                { id: adm.id, email: adm.email },
+                process.env.SECRET,
+                { expiresIn: "10h" }
+            );
+    
+            console.log("Token gerado:", token);
+    
+            return res.status(200).json({
+                msg: "Login realizado com sucesso!",
+                token,
+            });
+        } catch (error) {
+            console.error("Erro no login do controller:", error);
+            return res.status(500).json({
+                msg: "Erro ao tentar realizar o login",
+                error: error.message,
+            });
+        }
     },
+    
+    
 
     create: async (req, res) => {
         try {
